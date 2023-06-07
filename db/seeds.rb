@@ -17,7 +17,7 @@ my_array = %w[chinese italian japanese french belgian]
 10.times do
   restaurant = Restaurant.create(
     name: Faker::Restaurant.name,
-    adress: Faker::Address.street_address,
+    address: Faker::Address.street_address,
     phone_number: Faker::PhoneNumber.phone_number,
     category: my_array.sample
   )

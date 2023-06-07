@@ -18,9 +18,15 @@ my_array = %w[chinese italian japanese french belgian]
   restaurant = Restaurant.create(
     name: Faker::Restaurant.name,
     address: Faker::Address.street_address,
-    phone_number: Faker::PhoneNumber.phone_number,
+    phone_number: Faker::PhoneNumber.phone_number.to_s,
     category: my_array.sample
   )
+  10.times do
+    restaurant.reviews.create(
+      content: Faker::RickAndMorty.quote,
+      rating: (0..5).to_a.sample
+    )
+  end
   puts "Restaurant with id: #{restaurant.id} has been created"
 end
 
